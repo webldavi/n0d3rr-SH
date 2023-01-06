@@ -65,13 +65,11 @@ function tabber({ target: { selectionEnd, selectionStart, value } }) {
 // --
 onMounted(() => {
   loadTheme();
-  console.log(codeContent.value)
   codeLines.value = codeContent.value.split("\n").length;
 });
 
 watch(codeContent, async () => {
   if (!JSON.parse(props.config.disable)) {
-
     codeLines.value = codeContent.value.split("\n").length
     htmlCode.value = await setTheme.value.codeToHtml(`${codeContent.value}`, {
       lang: props.config.lang,
