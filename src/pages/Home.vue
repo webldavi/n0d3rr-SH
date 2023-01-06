@@ -47,6 +47,13 @@
           <span class="text-white text-lg">
             - E para usar o editor em seu site, basta usar iframe na url
           </span>
+          <span class="text-white text-lg">
+            - Quando for necessário desabilitar a edição no editor, basta inserir na url o parametro "?disable=true"
+          </span>
+          <span class="text-white text-lg">
+            - Se quiser usar o editor com um valor ja setado como padrão, use o paramentro "?text=" e logo em seguida o
+            valor que será setado no editor
+          </span>
         </div>
         <div id="codeExample">
           <iframe id="ConfigurationIframe" class="w-full h-96 rounded-lg"></iframe>
