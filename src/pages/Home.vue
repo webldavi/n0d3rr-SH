@@ -37,6 +37,19 @@
 
       </div>
     </div>
+    <div class="w-full flex flex-col items-center justify-center gap-2">
+      <div class="w-full md:w-[700px] xl:w-[1100px] flex flex-row justify-start item-center gap-2 p-2">
+        <span class="text-white text-md font-mono font-bold flex items-center">Desabilitar
+          edição?</span>
+        <input v-model="switchDisable" type="checkbox"
+          class="appearance-none w-9 focus:outline-none checked:bg-blue-300 h-5 bg-gray-300 rounded-full before:inline-block before:rounded-full before:bg-blue-500 before:h-4 before:w-4 checked:before:translate-x-full shadow-inner transition-all duration-300 before:ml-0.5" />
+      </div>
+      <div class="w-full md:w-[700px] xl:w-[1100px] flex flex-row justify-start item-center gap-2 p-2">
+        <span class="text-white text-md font-mono font-bold flex items-center">Escreva um pequeno texto:</span>
+        <input v-model="currentText" type="text" maxlength="20"
+          class="p-4 h-6 outline-none rounded-lg bg-gray-700 text-white border border-gray-300">
+      </div>
+    </div>
     <div class="w-full h-max flex items-center justify-center font-mono">
       <div class="w-full md:w-[700px] xl:w-[1100px] flex flex-col gap-2">
         <h1 class="text-mono text-bold text-3xl text-white">Configurando</h1>
@@ -90,7 +103,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import Linkvue from '../components/Link.vue'
 
 const encodeText = ref('')
@@ -117,11 +130,34 @@ const config = ref({
   lang: "js",
 });
 
+
 const url = ref(`/editor/${config.value.theme}/${config.value.lang}`)
 function setConfig(key, value) {
   config.value[key] = value;
   url.value = `/editor/${config.value.theme}/${config.value.lang}`
 }
+
+const switchDisable = ref(false)
+const currentText = ref('')
+function setLinkValue() {
+  if (currentText.value.length >= 1) {
+    url.value = (switchDisable.value)
+      ? `/editor/${config.value.theme}/${config.value.lang}?disable=true&text=${currentText.value}`
+      : `/editor/${config.value.theme}/${config.value.lang}?text=${currentText.value}`
+  } else {
+    url.value = (switchDisable.value)
+      ? `/editor/${config.value.theme}/${config.value.lang}?disable=true`
+      : `/editor/${config.value.theme}/${config.value.lang}`
+  }
+}
+
+watch(switchDisable, () => {
+  setLinkValue()
+})
+watch(currentText, () => {
+  setLinkValue()
+})
+
 const langs = ref([
   { lang: "abap" },
   { lang: "actionscript-3" },
