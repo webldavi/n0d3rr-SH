@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { getHighlighter, setCDN } from "shiki";
+import { getHighlighter } from "shiki";
 import { ref, defineProps, watch, onMounted } from "vue";
 
 // -- Variáveis
@@ -64,7 +64,6 @@ function tabber({ target: { selectionEnd, selectionStart, value } }) {
 
 // --
 onMounted(() => {
-  setCDN("/src/assets/");
   loadTheme();
   console.log(codeContent.value)
   codeLines.value = codeContent.value.split("\n").length;
