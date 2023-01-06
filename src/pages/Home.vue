@@ -66,7 +66,7 @@ const configurationCode = ref(`
 
 <script>
   // Url com tema dracula e linguagem javascript, com disable true
-  const url = "http://localhost:5173/#/editor/dracula/js?disable=true";
+  const url = "https://n0d3rr-sh.vercel.app/#/editor/dracula/js?disable=true";
   const meuTexto = 'Meu texto aqui'
   //Url encode para ser passada no src do iframe
   const encoded = url + '&text=' + encodeURI(meuTexto);
@@ -75,7 +75,7 @@ const configurationCode = ref(`
 <script>
 `)
 onMounted(async () => {
-  encodeText.value = `http://localhost:5173/#/editor/github-dark/html?disable=true&text=` //encodeUri ta vindo completo
+  encodeText.value = `https://n0d3rr-sh.vercel.app/#/editor/github-dark/html?disable=true&text=` //encodeUri ta vindo completo
   document.querySelector('#ConfigurationIframe').src = encodeText.value + encodeURIComponent(configurationCode.value) // Incompleto
 })
 

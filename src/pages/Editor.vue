@@ -16,13 +16,3 @@ const route = useRoute();
   min-width: 100%;
 }
 </style>
-
-
-
-<!-- <iframe src="localhost:5173/editor/dracula/js"></iframe>
-
-<script>
-  //✅ Para desabilitar a edição basta adicionar o atributo disable no id "codeContent"
-  document.getElementById('codeContent').setAttribute('disabled', '');
-
-</script> -->
