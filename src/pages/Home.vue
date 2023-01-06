@@ -82,7 +82,7 @@ const configurationCode = ref(`
 <script>
 `)
 onMounted(async () => {
-  encodeText.value = `https://n0d3rr-sh.vercel.app/#/editor/github-dark/html?disable=true&text=` //encodeUri ta vindo completo
+  encodeText.value = `/#/editor/github-dark/html?disable=true&text=` //encodeUri ta vindo completo
   document.querySelector('#ConfigurationIframe').src = encodeText.value + encodeURIComponent(configurationCode.value) // Incompleto
 })
 
