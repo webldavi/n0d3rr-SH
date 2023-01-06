@@ -37,7 +37,7 @@
 
       </div>
     </div>
-    <div class="w-full flex flex-col items-center justify-center gap-2">
+    <div class="w-full flex flex-col items-center justify-center">
       <div class="w-full md:w-[700px] xl:w-[1100px] flex flex-row justify-start item-center gap-2 p-2">
         <span class="text-white text-md font-mono font-bold flex items-center">Desabilitar
           edição?</span>
@@ -115,7 +115,7 @@ const configurationCode = ref(`
   const url = "https://n0d3rr-sh.vercel.app/#/editor/dracula/js?disable=true";
   const meuTexto = 'Meu texto aqui'
   //Url encode para ser passada no src do iframe
-  const encoded = url + '&text=' + encodeURI(meuTexto);
+  const encoded = url + '&text=' + encodeURIComponent(meuTexto);
   //seta o encoded no src do iframe
   document.querySelector('iframe').src = encoded
 <\/script>
