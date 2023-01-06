@@ -118,7 +118,7 @@ const configurationCode = ref(`
   const encoded = url + '&text=' + encodeURI(meuTexto);
   //seta o encoded no src do iframe
   document.querySelector('iframe').src = encoded
-<script>
+<\/script>
 `)
 onMounted(async () => {
   encodeText.value = `/#/editor/github-dark/html?disable=true&text=` //encodeUri ta vindo completo
