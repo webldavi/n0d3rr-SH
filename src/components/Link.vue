@@ -7,7 +7,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <router-link :to="props.to" class="p-2 border rounded-md border-gray-400 bg-gray-800 text-gray-300 font-mono ">
+  <router-link :to="props.to" class="p-2 border rounded-md border-zinc-400 bg-zinc-800 text-zinc-300 font-mono ">
     <slot></slot>
   </router-link>
 </template>

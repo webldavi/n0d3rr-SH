@@ -53,7 +53,7 @@
           <div class="w-full md:w-[700px] xl:w-[1100px] flex flex-row justify-start item-center gap-2 p-2">
             <span class="text-white text-md font-mono font-bold flex items-center">Escreva um pequeno texto:</span>
             <input v-model="currentText" type="text" maxlength="20"
-              class="p-4 h-6 outline-none rounded-lg bg-gray-700 text-white border border-gray-300" />
+              class="p-4 h-6 outline-none rounded-lg bg-zinc-700 text-white border border-gray-300" />
           </div>
           <div class="w-full md:w-[700px] xl:w-[1100px] flex justify-start items-center mt-4 font-mono">
             <Linkvue :to="url">{{ url }}</Linkvue>
@@ -66,14 +66,14 @@
           <div class="w-full flex flex-col gap-4 md:flex-row items-center justify-center md:gap-2">
             <div id="switchConfig"
               class="md:w-[350px] xl:w-[550px] h-52 overflow-scroll flex flex-row flex-wrap gap-2 rounded-lg p-2">
-              <span class="p-2 text-center bg-gray-700 rounded-full cursor-pointer font-mono text-xs text-white"
+              <span class="p-2 text-center bg-zinc-700 rounded-full cursor-pointer font-mono text-xs text-white"
                 v-for="(item, index) in themes" @click="setConfig('theme', item.theme)" :key="index">{{ item.theme
                 }}</span>
             </div>
 
             <div id="switchConfig"
               class="md:w-[350px] xl:w-[550px] h-52 overflow-scroll flex flex-row flex-wrap gap-2 rounded-lg p-2">
-              <span class="p-2 text-center bg-gray-700 rounded-full cursor-pointer font-mono text-xs text-white"
+              <span class="p-2 text-center bg-zinc-700 rounded-full cursor-pointer font-mono text-xs text-white"
                 v-for="(item, index) in langs" @click="setConfig('lang', item.lang)" :key="index">{{ item.lang }}</span>
             </div>
           </div>
