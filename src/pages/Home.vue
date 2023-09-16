@@ -81,6 +81,12 @@
         <div id="codeExample" v-html="iframeHTML"></div>
       </div>
     </div>
+    <div class="w-full h-max flex items-center justify-center font-mono text-white">
+      <div class="w-full md:w-[700px] xl:w-[1100px]">
+        <p class="w-full">Quer Criar uma imagem bonita do seu código? <Linkvue to="/snap">CLique aqui</Linkvue></p>
+
+      </div>
+    </div>
     <div class="w-full h-max flex justify-center items-center">
       <div
         class="w-full md:w-[700px] xl:w-[1100px] text-white border-t border-gray-700 pt-2 flex flex-row justify-between items-center">
@@ -113,7 +119,6 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
 import Linkvue from "../components/Link.vue";
-
 const encodeText = ref("");
 const configurationCode = ref(`
 <iframe src=""></iframe>
@@ -162,6 +167,9 @@ function setConfig(key, value) {
             src="${currentUrl.value}"
           ></iframe>`;
 }
+
+
+
 
 watch(switchDisable, () => {
   setLinkValue();
@@ -355,6 +363,7 @@ const themes = ref([
   { theme: "vitesse-dark" },
   { theme: "vitesse-light" },
 ]);
+
 </script>
 
 <style>

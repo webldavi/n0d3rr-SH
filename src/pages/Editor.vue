@@ -1,6 +1,6 @@
 <template>
   <div class="w-max h-max" id="editorContainer">
-    <CodeEditorVue
+    <CodeEditorVue class="min-h-screen"
       :config="{ theme: route.params.theme, lang: route.params.lang, defaultValue: decodeURI(route.query.text || ''), disable: route.query.disable || false }" />
   </div>
 </template>

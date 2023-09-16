@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "dom-to-image": "^2.6.0",
     "shiki": "^0.12.1",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"

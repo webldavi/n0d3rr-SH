@@ -1,6 +1,7 @@
 <template>
   <div
-    class="w-full min-h-screen flex flex-row p-2"
+    class=" flex flex-row p-2 w-max min-w-full"
+    :class="{'min-h-[20rem]': props.config.snap, 'min-h-screen': !props.config.snap}"
     @mouseenter="showCopyButton = true"
     @mouseleave="showCopyButton = false"
     :style="{
@@ -17,7 +18,7 @@
     </div>
     <div class="flex-1 relative">
       <div
-        class="absolute border border-white z-20 top-2 right-2 bg-gray-900 p-2 rounded-lg drop-shadow-md cursor-pointer"
+        class="absolute border border-white z-20 top-2 right-2 bg-zinc-900 p-2 rounded-lg drop-shadow-md cursor-pointer"
         v-show="showCopyButton"
         @click="copyCode"
       >
@@ -55,7 +56,6 @@
 <script setup>
 import { getHighlighter } from "shiki";
 import { ref, defineProps, watch, onMounted } from "vue";
-
 // -- Variáveis
 const codeLines = ref(1);
 const codeContent = ref("\n");
@@ -117,6 +117,7 @@ watch(codeContent, async () => {
     });
   }
 });
+
 </script>
 
 <style>
