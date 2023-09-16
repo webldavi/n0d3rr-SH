@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full min-h-screen bg-gray-900 p-4 flex flex-col gap-12">
+  <div class="w-full min-h-screen bg-zinc-900 p-4 flex flex-col gap-12">
     <div class="flex flex-col items-center justify-center">
       <div class="md:w-[700px] xl:w-[1100px] h-max text-white font-mono flex flex-col gap-4">
         <h1 class="text-4xl text-gray-200">n0d3rr Syntax Highlighter</h1>
@@ -19,39 +19,7 @@
         </p>
       </div>
     </div>
-    <div class="w-full flex flex-col items-center justify-center gap-2">
-      <span class="md:w-[700px] xl:w-[1100px] self-center text-white text-md font-mono font-bold">Selecione o tema e a
-        linguagem:</span>
 
-      <div class="w-full flex flex-col gap-4 md:flex-row items-center justify-center md:gap-2">
-        <div id="switchConfig"
-          class="md:w-[350px] xl:w-[550px] h-52 overflow-scroll flex flex-row flex-wrap gap-2 rounded-lg p-2">
-          <span class="p-2 text-center bg-gray-700 rounded-full cursor-pointer font-mono text-xs text-white"
-            v-for="(item, index) in themes" @click="setConfig('theme', item.theme)" :key="index">{{ item.theme }}</span>
-        </div>
-
-        <div id="switchConfig"
-          class="md:w-[350px] xl:w-[550px] h-52 overflow-scroll flex flex-row flex-wrap gap-2 rounded-lg p-2">
-          <span class="p-2 text-center bg-gray-700 rounded-full cursor-pointer font-mono text-xs text-white"
-            v-for="(item, index) in langs" @click="setConfig('lang', item.lang)" :key="index">{{ item.lang }}</span>
-        </div>
-      </div>
-    </div>
-    <div class="w-full flex flex-col items-center justify-center">
-      <div class="w-full md:w-[700px] xl:w-[1100px] flex flex-row justify-start item-center gap-2 p-2">
-        <span class="text-white text-md font-mono font-bold flex items-center">Desabilitar edição?</span>
-        <input v-model="switchDisable" type="checkbox"
-          class="appearance-none w-9 focus:outline-none checked:bg-blue-300 h-5 bg-gray-300 rounded-full before:inline-block before:rounded-full before:bg-blue-500 before:h-4 before:w-4 checked:before:translate-x-full shadow-inner transition-all duration-300 before:ml-0.5" />
-      </div>
-      <div class="w-full md:w-[700px] xl:w-[1100px] flex flex-row justify-start item-center gap-2 p-2">
-        <span class="text-white text-md font-mono font-bold flex items-center">Escreva um pequeno texto:</span>
-        <input v-model="currentText" type="text" maxlength="20"
-          class="p-4 h-6 outline-none rounded-lg bg-gray-700 text-white border border-gray-300" />
-      </div>
-      <div class="w-full md:w-[700px] xl:w-[1100px] flex justify-start items-center mt-4 font-mono">
-        <Linkvue :to="url">{{ url }}</Linkvue>
-      </div>
-    </div>
     <div class="w-full h-max flex items-center justify-center font-mono">
       <div class="w-full md:w-[700px] xl:w-[1100px] flex flex-col gap-2">
         <h1 class="text-mono text-bold text-3xl text-white">Configurando</h1>
@@ -76,6 +44,40 @@
             será setado no editor
           </li>
         </ul>
+        <div class="w-full flex flex-col items-center justify-center">
+          <div class="w-full md:w-[700px] xl:w-[1100px] flex flex-row justify-start item-center gap-2 p-2">
+            <span class="text-white text-md font-mono font-bold flex items-center">Desabilitar edição?</span>
+            <input v-model="switchDisable" type="checkbox"
+              class="appearance-none w-9 focus:outline-none checked:bg-blue-300 h-5 bg-gray-300 rounded-full before:inline-block before:rounded-full before:bg-blue-500 before:h-4 before:w-4 checked:before:translate-x-full shadow-inner transition-all duration-300 before:ml-0.5" />
+          </div>
+          <div class="w-full md:w-[700px] xl:w-[1100px] flex flex-row justify-start item-center gap-2 p-2">
+            <span class="text-white text-md font-mono font-bold flex items-center">Escreva um pequeno texto:</span>
+            <input v-model="currentText" type="text" maxlength="20"
+              class="p-4 h-6 outline-none rounded-lg bg-gray-700 text-white border border-gray-300" />
+          </div>
+          <div class="w-full md:w-[700px] xl:w-[1100px] flex justify-start items-center mt-4 font-mono">
+            <Linkvue :to="url">{{ url }}</Linkvue>
+          </div>
+        </div>
+        <div class="w-full flex flex-col items-center justify-center gap-2">
+          <span class="md:w-[700px] xl:w-[1100px] self-center text-white text-md font-mono font-bold">Selecione o tema e a
+            linguagem:</span>
+
+          <div class="w-full flex flex-col gap-4 md:flex-row items-center justify-center md:gap-2">
+            <div id="switchConfig"
+              class="md:w-[350px] xl:w-[550px] h-52 overflow-scroll flex flex-row flex-wrap gap-2 rounded-lg p-2">
+              <span class="p-2 text-center bg-gray-700 rounded-full cursor-pointer font-mono text-xs text-white"
+                v-for="(item, index) in themes" @click="setConfig('theme', item.theme)" :key="index">{{ item.theme
+                }}</span>
+            </div>
+
+            <div id="switchConfig"
+              class="md:w-[350px] xl:w-[550px] h-52 overflow-scroll flex flex-row flex-wrap gap-2 rounded-lg p-2">
+              <span class="p-2 text-center bg-gray-700 rounded-full cursor-pointer font-mono text-xs text-white"
+                v-for="(item, index) in langs" @click="setConfig('lang', item.lang)" :key="index">{{ item.lang }}</span>
+            </div>
+          </div>
+        </div>
         <div id="codeExample" v-html="iframeHTML"></div>
       </div>
     </div>
@@ -86,8 +88,8 @@
         <a target="_blank"
           class="font-mono text-md font-bold text-emerald-300 flex flex-row gap-2 w-max border-b border-transparent hover:border-emerald-300"
           href="https://github.com/webldavi/n0d3rr-SH">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="w-6 h-6">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
           </svg>
@@ -96,8 +98,8 @@
         <a target="_blank"
           class="font-mono text-md font-bold text-emerald-300 flex flex-row gap-2 w-max border-b border-transparent hover:border-emerald-300"
           href="https://github.com/webldavi/">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="w-6 h-6">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
           </svg>
@@ -119,7 +121,7 @@ const configurationCode = ref(`
 <script>
   // Url com tema dracula e linguagem javascript, com disable true
   const url = "https://n0d3rr-sh.vercel.app/#/editor/dracula/js?disable=true";
-  const meuTexto = 'Meu texto aqui'
+  const meuTexto = 'const test = 'test''
   //Url encode para ser passada no src do iframe
   const encoded = url + '&text=' + encodeURIComponent(meuTexto);
   //seta o encoded no src do iframe
@@ -151,9 +153,9 @@ function setLinkValue() {
 function setConfig(key, value) {
   config.value[key] = value;
   setLinkValue();
-  encodeText.value = `/#/editor/${config.value.theme}/html?disable=true&text=`; //encodeUri ta vindo completo
+  encodeText.value = `/#/editor/${config.value.theme}/html?disable=true&text=`; 
   currentUrl.value =
-    encodeText.value + encodeURIComponent(configurationCode.value); // Incompleto
+    encodeText.value + encodeURIComponent(configurationCode.value); 
   iframeHTML.value = `<iframe
             id="ConfigurationIframe"
             class="w-full h-96 rounded-lg"
@@ -169,7 +171,7 @@ watch(currentText, () => {
 });
 
 onMounted(() => {
-  setConfig("theme", "github-dark");
+  setConfig("theme", "material-darker");
 });
 const langs = ref([
   { lang: "abap" },
@@ -357,12 +359,12 @@ const themes = ref([
 
 <style>
 #switchConfig::-webkit-scrollbar {
-  width: 12px;
+  width: 2px;
   /* width of the entire scrollbar */
 }
 
 #switchConfig::-webkit-scrollbar-track {
-  background: rgb(17 24 39);
+  background: transparent;
   /* color of the tracking area */
 }
 
@@ -371,11 +373,11 @@ ul {
 }
 
 #switchConfig::-webkit-scrollbar-thumb {
-  background-color: rgb(35, 49, 78);
+  background-color: transparent;
   /* color of the scroll thumb */
   border-radius: 20px;
   /* roundness of the scroll thumb */
-  border: 3px solid rgb(17 24 39);
+  border: 3px solid rgb(51, 51, 57);
   /* creates padding around scroll thumb */
 }
 

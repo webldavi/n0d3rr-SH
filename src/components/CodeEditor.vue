@@ -17,7 +17,7 @@
     </div>
     <div class="flex-1 relative">
       <div
-        class="absolute z-20 top-2 right-2 bg-gray-900 p-2 rounded-lg drop-shadow-md cursor-pointer"
+        class="absolute border border-white z-20 top-2 right-2 bg-gray-900 p-2 rounded-lg drop-shadow-md cursor-pointer"
         v-show="showCopyButton"
         @click="copyCode"
       >
