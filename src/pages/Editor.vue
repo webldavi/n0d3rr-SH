@@ -1,7 +1,7 @@
 <template>
   <div class="w-max h-max" id="editorContainer">
     <CodeEditorVue class="min-h-screen"
-      :config="{ theme: route.params.theme, lang: route.params.lang, defaultValue: decodeURI(route.query.text || ''), disable: route.query.disable || false }" />
+      :config="{ theme: route.params.theme, lang: route.params.lang, line: route.query.line || false,defaultValue: decodeURI(route.query.text || ''), disable: route.query.disable || false }" />
   </div>
 </template>
 

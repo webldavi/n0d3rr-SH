@@ -8,7 +8,7 @@
       backgroundColor: currentTheme,
     }"
   >
-    <div class="flex flex-col items-end px-2">
+    <div class="flex flex-col items-end px-2" :class="{'hidden': props.config.line}">
       <span
         class="text-gray-500 font-mono flex items-center justify-center"
         v-for="line in codeLines"
